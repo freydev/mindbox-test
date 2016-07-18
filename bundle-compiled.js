@@ -39,8 +39,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             }
 
             _createClass(AutoScroll, [{
-                key: "getTopMargin",
-                value: function getTopMargin() {
+                key: "getBorderWidth",
+                value: function getBorderWidth() {
                     var style = document.defaultView.getComputedStyle(this.node);
                     return (parseInt(style.borderTopWidth) || 0) + (parseInt(style.borderBottomWidth) || 0);
                 }
@@ -57,7 +57,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             }, {
                 key: "componentWillUpdate",
                 value: function componentWillUpdate() {
-                    this.scrollToEnd = this.node.scrollHeight + this.getTopMargin() - (this.node.offsetHeight + this.node.scrollTop) < 50;
+                    this.scrollToEnd = this.node.scrollHeight + this.getBorderWidth() - (this.node.offsetHeight + this.node.scrollTop) <= this.props.buffer;
                 }
             }, {
                 key: "render",

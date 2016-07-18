@@ -5,7 +5,7 @@ const { render, findDOMNode } = ReactDOM;
 // Разрешено менять только этот компонент!
 class AutoScroll extends React.Component {
 
-    getTopMargin() {
+    getBorderWidth() {
         const style = document.defaultView.getComputedStyle(this.node);
         return (parseInt(style.borderTopWidth) || 0) + (parseInt(style.borderBottomWidth) || 0);
     }
@@ -17,7 +17,7 @@ class AutoScroll extends React.Component {
         if (this.scrollToEnd) this.node.scrollTop = this.node.scrollHeight;
     }
     componentWillUpdate() {
-        this.scrollToEnd = this.node.scrollHeight + this.getTopMargin() - (this.node.offsetHeight + this.node.scrollTop) < 50;
+        this.scrollToEnd = this.node.scrollHeight + this.getBorderWidth() - (this.node.offsetHeight + this.node.scrollTop) <= this.props.buffer;
     }
 
     render() {
