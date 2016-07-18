@@ -1,0 +1,19 @@
+{
+  "name": "mindbox",
+  "version": "0.0.1",
+  "authors": [
+    "Nikolaev Andrey <frey.dev@yandex.ru>"
+  ],
+  "description": "mindbox-test",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~15.2.1"
+  }
+}
